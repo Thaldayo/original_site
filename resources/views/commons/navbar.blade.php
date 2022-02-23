@@ -3,16 +3,23 @@
         {{-- トップページへのリンク --}}
         <a class="navbar-brand" href="/">Shokureki</a>
 
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        {{-- ログイン後表示 --}}
-        <div class="collapse navbar-collapse" id="nav-bar">
-            <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">ようこそ{ユーザー名}さん</a></li>
-            </ul>
-        </div>
+        {{-- ログイン後ハンバーガアイコン表示 --}}
+        @if(Auth::check())
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="nav-bar">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            {{-- ログアウトへのリンク --}}
+                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        @endif
     </nav>
 </header>
