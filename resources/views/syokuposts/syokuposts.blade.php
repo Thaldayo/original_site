@@ -37,6 +37,8 @@
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
+                        {{-- like, Unlikeボタン --}}
+                        @include('button.like_btn')
                     </div>
                 </div>
             </li>

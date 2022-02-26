@@ -34,7 +34,6 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         ;
         //ユーザの投稿一覧を作成日時の降順で取得
-
         $originalposts = $user->originalposts()->orderBy('created_at', 'desc')->paginate(10);
  
         // ユーザ詳細ビューでそれを表示
@@ -109,7 +108,21 @@ class UsersController extends Controller
      * @param  $id  ユーザのid
      * @return \Illuminate\Http\Response
      */
-    public function likes($id){
+    public function likes($id)
+    {
+        //idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
         
+        //関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+        
+        // ユーザがお気に入りしている投稿一覧を取得
+        $likes = $user->likes()->paginate(10);
+
+        // お気に入りしている投稿一覧をビューでそれらを表示
+        return view('users.likes', [
+            'user' => $user,
+            'originalposts' => $likes,
+        ]);
     }
 }

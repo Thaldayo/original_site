@@ -21,4 +21,12 @@ class Originalpost extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    /**
+     * この投稿をライクしているユーザ（ Userモデルとの関係を定義）
+     */
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'user_like', 'post_id', 'user_id')->withTimestamps();
+    }
 }

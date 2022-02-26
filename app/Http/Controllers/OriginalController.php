@@ -13,8 +13,8 @@ class OriginalController extends Controller
             $user = \Auth::user();
             //var_dump($user);dd();
             //ユーザとフォロー中ユーザの投稿の一覧を作成日時の降順で取得
-            $originalposts = $user->originalposts()->orderBy('created_at', 'desc')->paginate(10);
-
+            $originalposts = $user->feed_originalposts()->orderBy('created_at', 'desc')->paginate(10);
+            
             $data = [
                 'user' => $user,
                 'originalposts' => $originalposts,

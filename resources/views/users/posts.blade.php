@@ -2,10 +2,10 @@
 
 @section('content')
     @if(Auth::check())
-            <div>
-                {{-- ナビゲーションバー --}}
-                @include('users.navtabs')
-           </div>
+        <div>
+            {{-- ナビゲーションバー 
+            @include('users.navtabs')--}}
+       </div>
         <div class="text-center">
             <h1>Post</h1>
         </div>

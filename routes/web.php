@@ -26,6 +26,12 @@ Route::group(['middleware' => ['auth']], function() {
     });
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    
+    Route::group(['prefix' => 'microposts/{id}'], function () {
+        Route::post('like', 'LikeController@store')->name('likes.like');
+        Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
+    });
+    
     Route::get('post', 'OriginalController@showPostForm')->name('post');
     Route::resource('originalposts', 'OriginalController', ['only' => ['store', 'destroy']]);
 });

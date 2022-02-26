@@ -28,9 +28,8 @@
     </li>
     {{-- Like一覧タブ --}}
     <li class="nav-item">
-        {{--<a href="{{ route('users.likes', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.likes') ? 'active' : '' }}">
+        <a href="{{ route('users.likes', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.likes') ? 'active' : '' }}">
             Like
-        </a>--}}
-        Like
+        </a>
     </li>
 </ul>
