@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'shop', 'shop_adress', 'picture', 'menu', 'comment'
     ];
 
     /**
@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * このユーザが所有する投稿。（ Originalpostモデルとの関係を定義）
+    */
+    public function originalposts()
+    {
+        return $this->hasMany(Originalpost::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('originalposts');
+    }
+     
 }

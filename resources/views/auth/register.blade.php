@@ -31,6 +31,10 @@
 
                 {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            <div>
+                {{-- ログインページへのリンク --}}
+                <p class="mt-2">{!! link_to_route('login', 'Back to login', [], []) !!}</p>
+            </div>
         </div>
     </div>
 @endsection

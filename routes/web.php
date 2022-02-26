@@ -13,6 +13,20 @@
 
 Route::get('/', 'OriginalController@index');
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::group(['prefix' => 'user/{id}'], function (){
+        Route::post('edit', 'UsersController@edit')->name('user.edit');
+        // Route::get('profile', 'UsersController@show')->name('users.profile');
+        Route::get('follows', 'UsersController@follows')->name('users.follows');
+        Route::get('followers', 'UsersController@followers')->name('users.followers');
+        Route::get('likes', 'UsersController@likes')->name('users.likes');
+    });
+    
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    Route::get('post', 'OriginalController@showPostForm')->name('post');
+    Route::resource('originalposts', 'OriginalController', ['only' => ['store', 'destroy']]);
+});
+
 //ユーザー登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
