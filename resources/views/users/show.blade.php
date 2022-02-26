@@ -16,6 +16,8 @@
                     <img class="rounded img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
                 </div>
             </div>
+            {{-- フォロー／アンフォローボタン --}}
+            @include('user_follow.follow_button')
         </aside>
         <div class="col-sm-8">
             {{-- 投稿一覧 --}}

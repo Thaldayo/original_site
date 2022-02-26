@@ -11,5 +11,5 @@
         </ul>
     </div>
 </div>
-{{-- フォロー／アンフォローボタン 
-@include('user_follow.follow_button') --}}
+{{-- フォロー／アンフォローボタン --}}
+@include('user_follow.follow_button') 

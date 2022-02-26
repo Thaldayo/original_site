@@ -17,6 +17,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::group(['prefix' => 'user/{id}'], function (){
         Route::post('edit', 'UsersController@edit')->name('user.edit');
         // Route::get('profile', 'UsersController@show')->name('users.profile');
+        Route::post('follow', 'UserFollowController@store')->name('user.follow');
+        Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+        Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('follows', 'UsersController@follows')->name('users.follows');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
         Route::get('likes', 'UsersController@likes')->name('users.likes');

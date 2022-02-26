@@ -16,17 +16,15 @@
     </li>
     {{-- フォロー一覧タブ --}}
     <li class="nav-item">
-        {{--<a href="{{ route('users.followings', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followings') ? 'active' : '' }}">
-            Follow
-        </a>--}}
-        Follow
+        <a href="{{ route('users.followings', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followings') ? 'active' : '' }}">
+            Followings
+        </a>
     </li>
-    {{-- フォロワ一覧タブ --}}
+    {{-- フォロワー一覧タブ --}}
     <li class="nav-item">
-        {{--<a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followers') ? 'active' : '' }}">
-            Follower
-        </a>--}}
-        Follwer
+        <a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followers') ? 'active' : '' }}">
+            Followers
+        </a>
     </li>
     {{-- Like一覧タブ --}}
     <li class="nav-item">
