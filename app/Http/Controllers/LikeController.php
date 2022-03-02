@@ -30,7 +30,7 @@ class LikeController extends Controller
     public function destroy($id)
     {
         // 認証済みユーザ（閲覧者）が、 お気に入りを解除する
-        \Auth::user()->unfavorite($id);
+        \Auth::user()->unlike($id);
         //前のURLへリダイレクトさせる
         return back();
     }

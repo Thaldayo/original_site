@@ -28,8 +28,12 @@ class OriginalController extends Controller
     //投稿画面表示処理
     public function showPostForm()
     {
+        //認証済みユーザ（閲覧者）を取得
+        $user = \Auth::user();
         // 投稿画面を表示
-        return view('users.posts');
+        return view('users.posts', [
+            'user' => $user
+        ]);
     }
     
     public function store(Request $request)

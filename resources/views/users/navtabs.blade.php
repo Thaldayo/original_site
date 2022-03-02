@@ -8,11 +8,9 @@
     </li>
     {{-- プロフィールタブ --}}
     <li class="nav-item">
-        {{-- <a href="{{ route('users.show', 'Profile', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.profile') ? 'active' : '' }}">
+        <a href="{{ route('users.profile', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.profile') ? 'active' : '' }}">
             Profile
         </a>
-        --}}
-        Profile
     </li>
     {{-- フォロー一覧タブ --}}
     <li class="nav-item">

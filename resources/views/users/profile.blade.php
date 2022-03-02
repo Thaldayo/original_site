@@ -1,17 +1,18 @@
-@extends('layouts')
+@extends('layouts.app')
 
-@section('contetnt')
+@section('content')
     <div>
-        {{-- ナビゲーションバー 
-        @include('users.navtabs')--}}
+        {{-- ナビゲーションバー --}}
+        @include('users.navtabs')
     </div>
     <div class="row">
         <aside class="col-sm-4">
-            {{-- ユーザ情報 
-            @include('users.card')--}}
+            {{-- ユーザ情報 --}}
+            @include('users.card')
         </aside>
         <div class="col-sm-8">
-            jlkad
+            {{-- プロフィール画面表示 --}}
+            @include('profile.profile_layout')
         </div>
     </div>
 @endsection

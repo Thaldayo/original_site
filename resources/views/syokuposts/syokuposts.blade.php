@@ -30,15 +30,16 @@
                         {{-- コメンt --}}
                         <p class="mb-0">{!! nl2br(e($originalpost->comment)) !!}</p>
                     </div>
-                    <div>
+
+                    <div class="d-flex flex-row-reverse">
+                        {{-- like, Unlikeボタン --}}
+                        @include('button.like_btn')
                         @if(Auth::id() == $originalpost->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
                             {!! Form::open(['route' => ['originalposts.destroy', $originalpost->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::button('<i class="fas fa-trash-alt"></i>', ['class' => 'btn', 'type' => 'submit']) !!}
                             {!! Form::close() !!}
                         @endif
-                        {{-- like, Unlikeボタン --}}
-                        @include('button.like_btn')
                     </div>
                 </div>
             </li>

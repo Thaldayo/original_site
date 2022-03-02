@@ -19,7 +19,7 @@ class UsersController extends Controller
     }
         
     /**
-     * ユーザー一を覧表示するアクション。
+     * ユーザー一覧を表示するアクション。
      *
      * @param  $id  ユーザのid
      * @return \Illuminate\Http\Response
@@ -44,14 +44,72 @@ class UsersController extends Controller
     }
     
     /**
-     * ユーザのプロフィールを編集するアクション。
+     * ユーザのプロフィールを表示するアクション。
+     *
+     * @param  $id  ユーザのid
+     * @return \Illuminate\Http\Response
+     */
+    public function showProfile($id)
+    {
+        //idの値でユーザーを検索して取得
+        $user = User::findOrFail($id);
+        
+        //ユーザーのプロフィールデータを表示
+        $data = User::find($id);
+        
+        return view('users.profile', [
+            'user' => $user,
+            'data' => $data,
+        ]);
+    }
+    
+    /**
+     * ユーザのプロフィールを編集画面を表示するアクション。
      *
      * @param  $id  ユーザのid
      * @return \Illuminate\Http\Response
      */
      public function edit()
      {
-         
+        //idの値でユーザーを検索して取得
+        $user = \Auth::user();
+ 
+        // 投稿画面を表示
+        return view('profile.profile_form', [
+            'user' => $user,
+        ]);
+     }
+     
+     /**
+     * ユーザのプロフィールを編集するアクション。
+     *
+     * @param  $id  ユーザのid
+     * @return \Illuminate\Http\Response
+     */
+     public function update(Request $request, $id)
+     {
+         //バリデーション
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|max:255',
+            'barth' => 'required|max:30',
+            'web' => 'required|max:255',
+           'selfproduce' => 'required|max:255',
+        ]);
+        
+        // idの値でメッセージを検索して取得
+        $profile = User::findOrFail($id);
+        
+        // メッセージを更新
+        $profile->name = $request->name;
+        $profile->email = $request->email;
+        $profile->barth = $request->barth;
+        $profile->web = $request->web;
+        $profile->selfproduce = $request->selfproduce;
+        $profile->save();
+
+        // トップページへリダイレクトさせる
+        return redirect('/');
      }
     
     /**

@@ -155,7 +155,7 @@ class User extends Authenticatable
     {
         //すでにライクしているか
         $exist = $this->doing_like($originalpostId);
-        
+
         if($exist){
             //ライク済みまたは自身の投稿の場合は何もしない
             return false;
@@ -175,12 +175,12 @@ class User extends Authenticatable
      */
     public function unlike($originalpostId)
     {
-        // すでにお気に入りしているか
-        $exist = $this->is_to_favorite($originalpostId);
+        //すでにライクしているか
+        $exist = $this->doing_like($originalpostId);
 
         if ($exist) {
             // お気に入り済み、かつ、自分自身のでない場合はフォローを外す
-            $this->favorites()->detach($originalpostId);
+            $this->likes()->detach($originalpostId);
             return true;
         } else {
             // 上記以外の場合は何もしない
