@@ -1,25 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-    <div>
+    <div class="d-none d-sm-block">
         {{-- ナビゲーションバー --}}
         @include('users.navtabs')
     </div>
     <div class="row">
-        <aside class="col-sm-4">
+        <aside class="col-3">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ $user->name }}</h3>
-                </div>
-                <div class="card-body">
+                <div class="card-content">
                     {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-                    <img class="rounded img-fluid" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
+                    <img class="rounded-circle img-field d-none d-md-block" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
+                    <img class="rounded-circle img-field d-block d-md-none icon-field" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
+                    <h3 class="card-title text-center d-none d-md-block">{{ $user->name }}</h3>
+                    <ul>
+                        <!--フォローアイコン-->
+            @if (Auth::id() != $user->id)
+                <li class="d-none d-md-block">
+                    {{-- フォロー／アンフォローボタン --}}
+                    @include('user_follow.follow_button') 
+                </li>
+                <li class="d-block d-md-none">
+                    
+                    <i class="fas fa-user-plus fa-2x"></i>
+                    
+                </li>
+            @endif
+                    </ul>
                 </div>
             </div>
-            {{-- フォロー／アンフォローボタン --}}
-            @include('user_follow.follow_button')
         </aside>
-        <div class="col-sm-8">
+        <div class="col-9">
             {{-- 投稿一覧 --}}
             @include('syokuposts.syokuposts')
         </div>

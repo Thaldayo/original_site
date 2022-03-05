@@ -1,0 +1,19 @@
+.card-content{
+    flex: 1 1 auto;
+}
+
+.img-field{
+    max-width: 60%;
+    margin: 0.7rem auto 0.7rem auto;
+}
+
+.card-content > ul{
+    padding: 0;
+    text-align: center;
+}
+
+
+.icon-field{
+    padding: 0;
+    text-align: center;
+}

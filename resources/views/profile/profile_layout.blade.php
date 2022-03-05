@@ -5,32 +5,26 @@
     </div>
     
     <!--ユーザーネーム表示-->
-    <div>
-        <label>ユーザーネーム</label>
+    <div class="blue-text-box">
+        <span class="box-title">ユーザーネーム</span>
         <p>{{ $user->name }}</p>
     </div>
     
     <!--メールアドレス表示-->
-    <div>
-        <label>メールアドレス</label>
+    <div class="blue-text-box">
+        <span class="box-title">メールアドレス</span>
         <p>{{ $user->email }}</p>
     </div>
     
     <!--生年月日表示-->
-    <div>
-        <label>生年月日</label>
+    <div class="blue-text-box">
+        <span class="box-title">生年月日</span>
         <p>{{ $user->barth }}</p>
     </div>
     
-    <!--Web表示-->
-    <div>
-        <label>Web</label>
-        <p>{{ $user->web }}</p>
-    </div>
-    
     <!--自己紹介表示-->
-    <div>
-        <label>自己紹介表示</label>
+    <div class="blue-text-box text-left">
+        <span class="box-title">自己紹介</span>
         <p>{{ $user->selfproduce }}</p>
     </div>
     

@@ -93,7 +93,6 @@ class UsersController extends Controller
             'name' => 'required|max:30',
             'email' => 'required|max:255',
             'barth' => 'required|max:30',
-            'web' => 'required|max:255',
            'selfproduce' => 'required|max:255',
         ]);
         
@@ -104,7 +103,6 @@ class UsersController extends Controller
         $profile->name = $request->name;
         $profile->email = $request->email;
         $profile->barth = $request->barth;
-        $profile->web = $request->web;
         $profile->selfproduce = $request->selfproduce;
         $profile->save();
 

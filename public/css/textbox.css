@@ -1,0 +1,53 @@
+.blue-text-box {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 2px #95ccff;
+    border-radius: 8px;
+}
+
+.blue-text-box .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.blue-text-box p {
+    margin: 0; 
+    padding: 0;
+}
+
+.black-text-box {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 2px #bbbbbb;
+    border-radius: 8px;
+}
+
+.black-text-box .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #777777;
+    font-weight: bold;
+}
+
+.no-box{
+    border: none;
+}
+
+.text-overflow{
+    overflow: auto;
+}

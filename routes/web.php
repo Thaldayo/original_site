@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
     });
     
-    Route::get('post', 'OriginalController@showPostForm')->name('post');
+    Route::get('originalpost', 'OriginalController@showPostForm')->name('originalpost');
     Route::resource('originalposts', 'OriginalController', ['only' => ['store', 'destroy']]);
 });
 

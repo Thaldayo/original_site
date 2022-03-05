@@ -1,7 +1,6 @@
 @if(Auth::id() == $user->id)
-    <div>
+    <div class="text-center">
         {{-- 投稿ページへ --}}
-        {!! link_to_route('post',  'Post', [], ['class' => 'btn btn-primary']) !!}
-        
+        {!! link_to_route('originalpost',  '投稿', [], ['class' => 'btn btn-outline-secondary w-75']) !!}
     </div>
 @endif

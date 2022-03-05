@@ -4,11 +4,14 @@
     {{-- タブ --}}
     @include('users.navtabs')
     <div class="row">
-        <aside class="col-sm-4">
+        <aside class="col-3">
             {{-- ユーザ情報 --}}
             @include('users.card')
+            
+            {{-- 投稿ボタン --}}
+            @include('button.post_btn')
         </aside>
-        <div class="col-sm-8">
+        <div class="col-9">
             {{-- ユーザ一覧 --}}
             @include('users.users')
         </div>
