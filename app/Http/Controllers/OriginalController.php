@@ -42,7 +42,7 @@ class OriginalController extends Controller
         $request->validate([
             'shop' => 'required|max:50',
             'shop_adress' => 'required|max:255',
-            'picture' => 'required|max:255',
+            'picture' => 'image|file',
             'menu' => 'required|max:50',
             'comment' => 'required|max:255',
         ]);

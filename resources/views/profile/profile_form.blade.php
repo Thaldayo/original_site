@@ -10,7 +10,7 @@
 
             <div class="form-group black-text-box">
                 <span class="box-title">ユーザーネーム</span>
-                {!! Form::text('name', null, ['class' => 'no-box w-100']) !!}
+                {!! Form::text('user_name', null, ['class' => 'no-box w-100']) !!}
             </div>
             <div class="form-group black-text-box">
                 <span class="box-title">メールアドレス</span>
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group black-text-box">
                 <span class="box-title">生年月日</span>
-                {!! Form::date('barth', null, ['class' => 'no-box w-20']) !!}
+                {!! Form::date('birthday', null, ['class' => 'no-box w-20']) !!}
             </div>
             <div class="form-group black-text-box">
                 <span class="box-title">自己紹介</span>

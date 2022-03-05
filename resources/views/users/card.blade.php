@@ -3,7 +3,7 @@
         {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
         <img class="rounded-circle img-field d-none d-md-block" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
         <img class="rounded-circle img-field d-block d-md-none icon-field" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
-        <h3 class="card-title text-center d-none d-md-block">{{ $user->name }}</h3>
+        <h3 class="card-title text-center d-none d-md-block">{{ $user->user_name }}</h3>
         <ul>
             <!--フォローアイコン-->
             @if (Auth::id() != $user->id)

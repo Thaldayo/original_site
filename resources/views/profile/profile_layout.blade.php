@@ -7,7 +7,7 @@
     <!--ユーザーネーム表示-->
     <div class="blue-text-box">
         <span class="box-title">ユーザーネーム</span>
-        <p>{{ $user->name }}</p>
+        <p>{{ $user->user_name }}</p>
     </div>
     
     <!--メールアドレス表示-->
@@ -19,7 +19,7 @@
     <!--生年月日表示-->
     <div class="blue-text-box">
         <span class="box-title">生年月日</span>
-        <p>{{ $user->barth }}</p>
+        <p>{{ $user->birthday }}</p>
     </div>
     
     <!--自己紹介表示-->

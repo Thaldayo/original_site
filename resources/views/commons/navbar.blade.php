@@ -13,7 +13,7 @@
                 <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->user_name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- ユーザ一覧へのリンク --}}
                             <li class="dropdown-item">{!! link_to_route('users.index', 'Users') !!}</li>

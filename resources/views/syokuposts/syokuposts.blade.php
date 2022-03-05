@@ -7,7 +7,7 @@
                 <div class="media-body">
                     <div>
                         {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}
-                        {!! link_to_route('users.show', $originalpost->user->name, ['user' => $originalpost->user->id]) !!}
+                        {!! link_to_route('users.show', $originalpost->user->user_name, ['user' => $originalpost->user->id]) !!}
                         <span class="text-muted">posted at {{ $originalpost->created_at }}</span>
                     </div>
                     <div>

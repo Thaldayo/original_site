@@ -90,9 +90,9 @@ class UsersController extends Controller
      {
          //バリデーション
         $request->validate([
-            'name' => 'required|max:30',
+            'user_name' => 'required|max:30',
             'email' => 'required|max:255',
-            'barth' => 'required|max:30',
+            'birthday' => 'required|date',
            'selfproduce' => 'required|max:255',
         ]);
         
@@ -100,9 +100,9 @@ class UsersController extends Controller
         $profile = User::findOrFail($id);
         
         // メッセージを更新
-        $profile->name = $request->name;
+        $profile->user_name = $request->user_name;
         $profile->email = $request->email;
-        $profile->barth = $request->barth;
+        $profile->birthday = $request->birthday;
         $profile->selfproduce = $request->selfproduce;
         $profile->save();
 
