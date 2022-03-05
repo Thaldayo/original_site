@@ -26,7 +26,6 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        
         // idの値でユーザを検索して取得
         $user = User::findOrFail($id);
     
@@ -173,7 +172,7 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
         
         // ユーザがお気に入りしている投稿一覧を取得
-        $likes = $user->likes()->paginate(10);
+        $likes = $user->likes()->orderBy('created_at', 'desc')->paginate(10);
 
         // お気に入りしている投稿一覧をビューでそれらを表示
         return view('users.likes', [

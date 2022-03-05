@@ -1,0 +1,13 @@
+/*フォローボタン*/
+.ellipse-button{
+    padding: 1px 15px 1px 15px;
+    border-radius: 30px;
+}
+
+.bg-white{
+    background-color: #FFFFFF;
+}
+
+.bg-skyblue{
+    background-color: #87cefa;
+}

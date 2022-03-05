@@ -14,7 +14,7 @@
                 {{-- 投稿ボタン --}}
                 @include('button.post_btn')
             </aside>
-            <div class="col-9">
+            <div class="col-9 p-0">
                 {{-- 投稿一覧 --}}
                 @include('syokuposts.syokuposts')
             </div>

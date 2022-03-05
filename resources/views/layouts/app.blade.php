@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/card.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/textbox.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/picture.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/button.css') }}">
     </head>
 
     <body>
