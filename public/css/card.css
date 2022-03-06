@@ -7,13 +7,18 @@
     margin: 0.7rem auto 0.7rem auto;
 }
 
-.card-content > ul{
-    padding: 0;
-    text-align: center;
+.img-trimming-field{
+    margin: 0.7rem auto 0.7rem auto;
 }
 
+.img-trimming{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
 
-.icon-field{
-    padding: 0;
-    text-align: center;
+.img-trimming-sm{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
 }

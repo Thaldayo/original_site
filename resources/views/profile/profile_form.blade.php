@@ -6,8 +6,11 @@
             {{-- ナビゲーションバー --}}
             @include('users.navtabs')
        </div>
-        {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}
-
+        {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put', 'enctype'=>'multipart/form-data']) !!}
+            <div>
+                <span>ユーザーアイコン</span>
+                {!! Form::file('user_icon', null, []) !!}
+            </div>
             <div class="form-group black-text-box">
                 <span class="box-title">ユーザーネーム</span>
                 {!! Form::text('user_name', null, ['class' => 'no-box w-100']) !!}

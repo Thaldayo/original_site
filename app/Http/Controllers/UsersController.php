@@ -89,16 +89,31 @@ class UsersController extends Controller
      {
          //バリデーション
         $request->validate([
+            'user_icon' => 'image|file',
             'user_name' => 'required|max:30',
             'email' => 'required|max:255',
             'birthday' => 'required|date',
-           'selfproduce' => 'required|max:255',
+            'selfproduce' => 'required|max:255',
         ]);
         
-        // idの値でメッセージを検索して取得
+        //Laravel直下のpublicディレクトリに保存
+        if($user_icon = $request->user_icon){
+            //保存する画像に命名
+            $user_iconName = time().'.'.$user_icon->getClientOriginalExtension();
+            ////Laravel直下のpublicディレクトリに新フォルダを作り保存する
+            $target_path = public_path('/uploads/');
+            $user_icon->move($target_path,$user_iconName);
+        }
+        else{
+            //画像が登録されなかった時は空文字を入れる
+            $nameNull="";
+        }
+        
+        // idの値でプロフィールを検索して取得
         $profile = User::findOrFail($id);
         
-        // メッセージを更新
+        // プロフィールを更新
+        $profile->user_icon = $user_iconName;
         $profile->user_name = $request->user_name;
         $profile->email = $request->email;
         $profile->birthday = $request->birthday;

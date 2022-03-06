@@ -1,10 +1,16 @@
 <div class="card">
     <div class="card-content">
-        {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-        <img class="rounded-circle img-field d-none d-md-block" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
-        <img class="rounded-circle img-field d-block d-md-none icon-field" src="{{ Gravatar::get($user->email, ['size' => 500]) }}" alt="">
+        
+        @if($user->user_icon != NULL)
+            <img src="/uploads/{{ $user->user_icon}}" class="rounded-circle img-trimming img-trimming-field d-none d-md-block">
+            <img src="/uploads/{{ $user->user_icon}}" class="rounded-circle img-trimming-sm img-trimming-field d-block d-md-none">
+        @else
+            {{-- $user_iconがNullならユーザのメールアドレスをもとにGravatarを取得して表示 --}}
+            <img class="rounded-circle img-field d-none d-md-block" src="{{ Gravatar::get($user->email, ['size' => 400]) }}" alt="">
+            <img class="rounded-circle img-field d-block d-md-none p-0 text-center" src="{{ Gravatar::get($user->email, ['size' => 400]) }}" alt="">
+        @endif
         <h3 class="card-title text-center d-none d-md-block">{{ $user->user_name }}</h3>
-        <ul>
+        <ul class="p-0 text-center">
             <!--フォローアイコン-->
             @if (Auth::id() != $user->id)
                 <li class="d-none d-md-block">
@@ -17,7 +23,6 @@
                     
                 </li>
             @endif
-            
             
             <!--ホームアイコン-->
             <li class="d-block d-md-none icon-field">

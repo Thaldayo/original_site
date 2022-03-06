@@ -47,6 +47,7 @@ class OriginalController extends Controller
             'comment' => 'required|max:255',
         ]);
         
+        //Laravel直下のpublicディレクトリに保存
         if($picture = $request->picture){
             //保存する画像に命名
             $pictureName = time().'.'.$picture->getClientOriginalExtension();
@@ -56,13 +57,14 @@ class OriginalController extends Controller
         }
         else{
             //画像が登録されなかった時は空文字を入れる
-            $name="";
+            $nameNull="";
         }
         
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->originalposts()->create([
             'shop' => $request->shop,
             'shop_adress' => $request->shop_adress,
+            'nameNull' => $request->input('nameNull'),
             'picture' => $pictureName,
             'menu' => $request->menu,
             'comment' => $request->comment,

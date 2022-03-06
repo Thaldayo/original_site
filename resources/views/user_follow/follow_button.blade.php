@@ -2,7 +2,7 @@
     @if (Auth::user()->is_following($user->id))
         {{-- アンフォローボタンのフォーム --}}
         {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
-            {!! Form::submit('Unfollow', ['class' => "ellipse-button bg-skyblue"]) !!}
+            {!! Form::submit('Following', ['class' => "ellipse-button bg-skyblue"]) !!}
         {!! Form::close() !!}
     @else
         {{-- フォローボタンのフォーム --}}

@@ -3,7 +3,11 @@
         @foreach ($originalposts as $originalpost)
             <li class="media p-3 border">
                 {{-- 投稿の所有者のメールアドレスをもとにGravatarを取得して表示 --}}
-                <img class="mr-2 rounded-circle" src="{{ Gravatar::get($originalpost->user->email, ['size' => 40]) }}" alt="">
+                @if($user->user_icon != NULL)
+                    <img src="/uploads/{{ $user->user_icon}}" class="rounded-circle img-trimming-sm mr-2">
+                @else
+                    <img class="mr-2 rounded-circle" src="{{ Gravatar::get($originalpost->user->email, ['size' => 40]) }}" alt="">
+                @endif
                 <div class="media-body">
                     <div class="mb-2">
                         {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}

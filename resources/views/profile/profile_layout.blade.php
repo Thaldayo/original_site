@@ -1,7 +1,12 @@
 <div class="text-center">
     <!--ユーザーアイコン表示-->
     <div>
-        <!--<img src="{{ $user->picture }}" alt="">-->
+        @if($user->user_icon != NULL)
+            <img src="/uploads/{{ $user->user_icon}}" class="rounded-circle img-trimming img-trimming-field">
+        @else
+            {{-- $user_iconがNullならユーザのメールアドレスをもとにGravatarを取得して表示 --}}
+            <img class="rounded-circle img-field" src="{{ Gravatar::get($user->email, ['size' => 400]) }}" alt="">
+        @endif
     </div>
     
     <!--ユーザーネーム表示-->
