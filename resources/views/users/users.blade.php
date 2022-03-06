@@ -2,8 +2,12 @@
     <ul class="list-unstyled">
         @foreach ($users as $user)
             <li class="media pt-3 pl-3 pr-3 border">
-                {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-                <img class="mr-2 rounded-circle" src="{{ Gravatar::get($user->email, ['size' => 50]) }}" alt="">
+                @if($user->user_icon != NULL)
+                    <img class="rounded-circle img-trimming-sm mr-2" src="/uploads/{{ $user->user_icon }}">
+                @else
+                    {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
+                    <img class="mr-2 rounded-circle" src="{{ Gravatar::get($user->email, ['size' => 40]) }}" alt="">
+                @endif
                 <div class="media-body">
                     <div class="d-flex justify-content-between">
                         <h4>{{ $user->user_name }}</h4>

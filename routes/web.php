@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
     
-    Route::group(['prefix' => 'microposts/{id}'], function () {
+    Route::group(['prefix' => 'originalpost/{id}'], function () {
         Route::post('like', 'LikeController@store')->name('likes.like');
         Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
     });

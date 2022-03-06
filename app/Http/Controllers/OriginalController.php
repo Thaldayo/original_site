@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 
 class OriginalController extends Controller
 {
+    //投稿一覧表示
     public function index(){
         $data = [];
         if(\Auth::check()) {
             //認証済みユーザ（閲覧者）を取得
             $user = \Auth::user();
-            //var_dump($user);dd();
+            
+            //自身以外のユーザを取得
+            
+            
             //ユーザとフォロー中ユーザの投稿の一覧を作成日時の降順で取得
             $originalposts = $user->feed_originalposts()->orderBy('created_at', 'desc')->paginate(10);
             
@@ -36,6 +40,7 @@ class OriginalController extends Controller
         ]);
     }
     
+    //投稿処理
     public function store(Request $request)
     {
         //バリデーション
@@ -74,6 +79,7 @@ class OriginalController extends Controller
         return back();
     }
     
+    //投稿削除処理
     public function destroy($originalpost)
     {
         //idの値で投稿を検索して取得

@@ -2,10 +2,10 @@
     <!--ユーザーアイコン表示-->
     <div>
         @if($user->user_icon != NULL)
-            <img src="/uploads/{{ $user->user_icon}}" class="rounded-circle img-trimming img-trimming-field">
+            <img class="rounded-circle img-trimming img-trimming-field" src="/uploads/{{ $user->user_icon}}">
         @else
             {{-- $user_iconがNullならユーザのメールアドレスをもとにGravatarを取得して表示 --}}
-            <img class="rounded-circle img-field" src="{{ Gravatar::get($user->email, ['size' => 400]) }}" alt="">
+            <img class="rounded-circle img-field" src="{{ Gravatar::get($user->email, ['size' => 100]) }}" alt="">
         @endif
     </div>
     

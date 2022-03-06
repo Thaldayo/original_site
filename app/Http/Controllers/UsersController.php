@@ -7,6 +7,13 @@ use App\User;
 
 class UsersController extends Controller
 {
+    
+    /**
+     * ユーザー一覧を表示するアクション。
+     *
+     * @param  $id  ユーザのid
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //ユーザ一覧をidの降順で取得
@@ -19,7 +26,7 @@ class UsersController extends Controller
     }
         
     /**
-     * ユーザー一覧を表示するアクション。
+     * ホームを表示するアクション。
      *
      * @param  $id  ユーザのid
      * @return \Illuminate\Http\Response
